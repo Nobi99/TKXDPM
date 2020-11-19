@@ -1,0 +1,87 @@
+.top {
+  &-items {
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    > p {
+      text-align: center;
+      border-radius: 8px;
+      font-size: 28px;
+      font-weight: 700;
+      background-color: #d9afd9;
+      background-color: #8ec5fc;
+      background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+      padding: 5px;
+    }
+  }
+  .infor-media {
+    width: 100%;
+    max-height: 250px;
+    min-height: 230px;
+
+    img {
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      border-radius: 8px;
+    }
+  }
+  .text,
+  .image {
+    width: 50%;
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .text p {
+    margin-bottom: 10px;
+  }
+
+  .confirm-btn {
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #2193b0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    transition: all ease-in 0.5s;
+  }
+
+  .confirm-btn:hover {
+    background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  }
+  .invoice .text {
+    width: 100%;
+  }
+}
+
+.bottom {
+  transform: all ease-in-out 0.5s;
+  margin-top: 20px;
+  &-header {
+    color: #0074d9;
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+    padding: 5px 50px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-bottom: 40px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+  &-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #0074d9;
+  }
+}
