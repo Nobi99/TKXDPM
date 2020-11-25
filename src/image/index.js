@@ -9,6 +9,7 @@ import eBikeIcon from '../assets/icon/eBike.png';
 import moneyIcon from '../assets/icon/money.png';
 import bikeImage from '../assets/bike.jpg';
 import barcodeIcon from '../assets/icon/barcodeIcon.png'
+import errorIcon from '../assets/icon/errorIcon.png';
 
 export {
     distanceIcon,
@@ -21,5 +22,6 @@ export {
     eBikeIcon,
     moneyIcon,
     barcodeIcon,
-    bikeImage
+    bikeImage,
+    errorIcon
 }

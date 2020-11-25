@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
     addressIcon,
     distanceIcon,
@@ -9,7 +10,7 @@ import {
 
 const DockingStation = ({ station }) => {
     return (
-        <div className="station-item">
+        <Link to={ `get-bike/station-${station.id}` } className="station-item">
             <h5>{ station.name }</h5>
             <div className="item-attr">
                 <img src={ addressIcon } alt="address icon" />
@@ -31,7 +32,7 @@ const DockingStation = ({ station }) => {
                 <img src={ emptySlotIcon } alt="empty icon" />
                 <p>{ station.emptySlot } </p>
             </div>
-        </div>
+        </Link>
     );
 };
 

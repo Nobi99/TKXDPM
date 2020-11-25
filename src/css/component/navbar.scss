@@ -15,10 +15,12 @@
   }
   &-right {
     .user-infor {
-      background-color: rgba(0, 0, 0, 0.09);
+      background-color: #8ec5fc;
+      background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
       border-radius: 30px;
       padding: 5px 10px;
       margin-right: 15px;
+      font-weight: bold;
       &__avt {
         width: 30px;
         height: 30px;

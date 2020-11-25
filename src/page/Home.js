@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import backgroundImg1 from '../assets/background.jfif';
 import backgroundImg2 from '../assets/background2.jpg';
 import backgroundImg3 from '../assets/background3.jpg';
-import bike from '../assets/bike.png';
+import { Link } from 'react-router-dom';
+
 
 const imgArr = [backgroundImg1, backgroundImg2, backgroundImg3];
 const imgArrLength = imgArr.length;
@@ -12,6 +14,14 @@ let count = 1;
 function Home() {
 
     const [backgroundImg, setBackgroundImg] = useState(backgroundImg1);
+
+    const getData = async () => {
+        let kq = await axios.get('http://localhost:9000/api/infor/all-bike?id=2');
+        console.log(kq.data.data);
+    }
+
+    getData();
+
 
     useEffect(() => {
         let runningImage = setInterval(async () => {
@@ -22,7 +32,9 @@ function Home() {
             else count = 0;
             console.log(count);
         }, 5000);
-    }, []);
+
+        return clearInterval(runningImage);
+    }, [backgroundImg]);
 
     return (
         <div className="home flex items-center" style={ {
@@ -39,7 +51,7 @@ function Home() {
                     <p>Trả xe bất kì lúc nào.</p>
                     <p>Miễn phí trải nghiệm 10p đầu.</p>
                 </div>
-                <a className="btn rent-bike">Thuê xe ngay</a>
+                <Link to="/docking" className="btn rent-bike">Thuê xe ngay</Link>
             </div>
             <div className="home-left" style={ {
 

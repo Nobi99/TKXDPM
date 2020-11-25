@@ -5,7 +5,7 @@ import {
     bikeImage,
     barcodeIcon,
 } from '../image'
-
+import { Link } from 'react-router-dom';
 
 /**
  * @param bike to render Bike information ()
@@ -14,7 +14,7 @@ import {
 const BikeInfor = ({ bike }) => {
 
     return (
-        <div className="bike-items" data-position={ bike.position }>
+        <Link to="hiring-bike" className="bike-items" data-position={ bike.position }>
             <div className="top">
                 <img src={ bikeImage } alt="bike" />
             </div>
@@ -40,7 +40,7 @@ const BikeInfor = ({ bike }) => {
                 <img src={ moneyIcon } alt="money icon" />
                 <p>{ bike.bikeDeposit.toLocaleString('en-US', { style: 'currency', currency: 'VND' }) } </p>
             </div>
-        </div>
+        </Link>
     );
 }
 

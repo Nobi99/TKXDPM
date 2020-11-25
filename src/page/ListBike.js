@@ -1,6 +1,6 @@
-import React from 'react'
-import BikeInfor from '../component/BikeInfor'
-import listBike from '../api/getBike';
+import React, { useState, useEffect } from 'react';
+import BikeInfor from '../component/BikeInfor';
+import { useParams } from 'react-router-dom';
 import {
     addressIcon,
     distanceIcon,
@@ -8,15 +8,37 @@ import {
     bikeIcon,
     areaIcon
 } from "../image";
-import dockingStationList from '../api/getDockingStation';
 
+import { getAllBike } from '../api/bike.api';
+import { getStationById } from '../api/station.api';
 
 const ListBike = () => {
-    const station = dockingStationList[0];
+
+    let { id } = useParams();
+    const [listBike, setListBike] = useState([]);
+    const [station, setStation] = useState('');
+
+    useEffect(() => {
+        getStationFromApi();
+        getBikeFromApi();
+    }, []);
+
+
+
+    const getBikeFromApi = async () => {
+        const queryResult = await getAllBike(id);
+        setListBike(queryResult);
+    }
+
+    const getStationFromApi = async () => {
+        const queryResult = await getStationById(1);
+        setStation(queryResult);
+    }
+
     return (
         <div className="station-container">
             <div className="station-header station-infor">
-                <p>Bãi xe số 1</p>
+                <p>{ station.name }</p>
                 <div className="flex items-center station-infor-items">
                     <div className="item-attr address">
                         <img src={ addressIcon } alt="address icon" />
@@ -28,7 +50,7 @@ const ListBike = () => {
                     </div>
                     <div className="item-attr">
                         <img src={ areaIcon } alt="area icon" />
-                        <p>{ station.area } m2 </p>
+                        <p>{ station.area } m<sup>2</sup> </p>
                     </div>
                     <div className="item-attr">
                         <img src={ bikeIcon } alt="bike icon" />
@@ -43,7 +65,7 @@ const ListBike = () => {
             </div>
             <div className="list-station flex list-bike">
                 { listBike.map((item) =>
-                    <BikeInfor bike={ item } key={ item.id } />
+                    <BikeInfor bike={ item } key={ item.position } />
                 ) }
             </div>
         </div>
